@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.965 0.008 85);
+  --foreground: oklch(0.23 0.045 215);
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-nunito), Arial, Helvetica, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f6f4ef; font-family: var(--font-nunito), Arial, Helvetica, sans-serif; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
+.cssbuttons-io-button {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid #0e6287;
+  border-radius: 9999px !important;
+  height: 2.5rem;
+  padding: 0.7rem 0.8rem 0.7rem 1rem;
+  background: #0e6287;
+  color: #f6f4ef;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.cssbuttons-io-button .icon {
+  display: grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  border-radius: 999px;
+  background: #f6f4ef;
+  color: #0e6287;
+  transition: transform 180ms ease;
+}
+
+.cssbuttons-io-button:hover { transform: translateY(-3px); }
+.cssbuttons-io-button:hover .icon { transform: translateX(3px); }
+.cssbuttons-io-button:active { transform: translateY(-1px) scale(0.98); }
+.cssbuttons-io-button:focus-visible { outline: 2px solid #e5b04b; outline-offset: 3px; }
+
+@media (max-width: 639px) {
+  .cssbuttons-io-button .icon {
+    margin-left: auto;
+    margin-right: -0.3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cssbuttons-io-button, .cssbuttons-io-button .icon { transition: none; }
+}
+::selection { background: #e5b04b; color: #172b35; }
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .order-info-motion [data-hover-card] {
+    transition: transform 300ms ease, box-shadow 300ms ease;
+  }
+  .order-info-motion [data-hover-card]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgb(14 98 135 / 12%);
+  }
+}
